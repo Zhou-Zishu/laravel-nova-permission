@@ -1,6 +1,6 @@
 <?php
 
-namespace Insenseanalytics\LaravelNovaPermission;
+namespace Zhouzishu\LaravelNovaPermission;
 
 use Laravel\Nova\Resource;
 use Spatie\Permission\Models\Role as SpatieRole;
@@ -21,7 +21,7 @@ class Role extends Resource
 	 *
 	 * @var string
 	 */
-	public static $title = 'name';
+	public static $title = 'display_name';
 
 	/**
 	 * The columns that should be searched.
@@ -29,7 +29,7 @@ class Role extends Resource
 	 * @var array
 	 */
 	public static $search = [
-		'name',
+		'name', 'display_name'
 	];
 
 	/**

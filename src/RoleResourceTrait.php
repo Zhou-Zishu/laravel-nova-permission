@@ -1,6 +1,6 @@
 <?php
 
-namespace Insenseanalytics\LaravelNovaPermission;
+namespace Zhouzishu\LaravelNovaPermission;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Fields\ID;
@@ -40,18 +40,23 @@ trait RoleResourceTrait
 		return [
 			ID::make()->sortable(),
 
-			Text::make('Name', 'name')
+			Text::make('名称', 'name')
 				->rules(['required', 'string', 'max:255'])
 				->creationRules('unique:' . config('permission.table_names.roles'))
 				->updateRules('unique:' . config('permission.table_names.roles') . ',name,{{resourceId}}'),
 
-			Select::make('Guard Name', 'guard_name')
+			Text::make('别名', 'display_name')
+				->rules(['required', 'string', 'max:255'])
+				->creationRules('unique:' . config('permission.table_names.roles'))
+				->updateRules('unique:' . config('permission.table_names.roles') . ',name,{{resourceId}}'),
+
+			Select::make('Guard', 'guard_name')
 				->options($guardOptions->toArray())
 				->rules(['required', Rule::in($guardOptions)]),
 
-			DateTime::make('Created At', 'created_at')->exceptOnForms(),
+			DateTime::make('创建时间', 'created_at')->exceptOnForms(),
 
-			DateTime::make('Updated At', 'updated_at')->exceptOnForms(),
+			DateTime::make('更新时间', 'updated_at')->exceptOnForms(),
 
 			BelongsToMany::make($permissionResource::label(), 'permissions', $permissionResource)->searchable(),
 

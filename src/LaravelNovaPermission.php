@@ -1,6 +1,6 @@
 <?php
 
-namespace Insenseanalytics\LaravelNovaPermission;
+namespace Zhouzishu\LaravelNovaPermission;
 
 use Laravel\Nova\Tool;
 use Laravel\Nova\Nova;

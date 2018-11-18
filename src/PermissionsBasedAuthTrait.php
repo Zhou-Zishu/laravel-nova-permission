@@ -1,6 +1,6 @@
 <?php
 
-namespace Insenseanalytics\LaravelNovaPermission;
+namespace Zhouzishu\LaravelNovaPermission;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
